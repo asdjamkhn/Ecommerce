@@ -26,6 +26,9 @@ public class CustomerService {
 
     }
 
+    
+
+
     public void updateCustomer(String cust_address){
 
        // customerDAO.updateCustomer(cust_address,cust_id);
