@@ -37,9 +37,12 @@ public class CategoryMenu implements SubMenu {
                     System.out.println(categoryService.getCatogeries());
                     break;
                 case 3:
+
                     return;
+
                 default:
                     System.out.println("Invalid input");
+
             }
         }
     }

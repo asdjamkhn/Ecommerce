@@ -11,7 +11,8 @@ public class Order_Items {
         this.product_id = product_id;
         this.quantity = quantity;
     }
-    public Order_Items(){
+
+    public Order_Items() {
 
     }
 

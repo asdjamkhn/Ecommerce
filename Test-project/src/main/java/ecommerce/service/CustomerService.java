@@ -30,9 +30,9 @@ public class CustomerService {
 
         customerDAO.updateCustomer(cust_address,cust_id);
     }
-    public void deleteCustomer(){
+    public void deleteCustomer(int cust_id){
 
-        customerDAO.deleteCustomer();
+        customerDAO.deleteCustomer(cust_id);
     }
 
 }

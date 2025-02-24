@@ -12,6 +12,7 @@ public class CustomerDAO {
     private final JdbcTemplate jdbcTemplate = DatabaseConfig.getJdbcTemplate();
 
     public void addCustomers(String cust_name, String cust_address, int cust_phone) {
+
         String sql = "Insert into Customer (cust_name, cust_address, cust_phone) Values(?,?,?)";
         int result = jdbcTemplate.update(sql, cust_name, cust_address, cust_phone);
         if (result > 0) {
@@ -21,43 +22,45 @@ public class CustomerDAO {
 
         }
     }
+
     public List<Customer> getCustomers() {
         String sql = "Select * from Customer";
         return jdbcTemplate.query(sql, new BeanPropertyRowMapper<>(Customer.class));
 
     }
 
-    public void getCustomerByName(String cust_name){
+    public void getCustomerByName(String cust_name) {
 
         String sql = "select * from customer where cust_name = ?";
 
-        System.out.println(jdbcTemplate.query(sql, new BeanPropertyRowMapper<>(Customer.class),cust_name));
+        System.out.println(jdbcTemplate.query(sql, new BeanPropertyRowMapper<>(Customer.class), cust_name));
 
     }
-    public void updateCustomer(String cust_address, int cust_id){
+
+    public void updateCustomer(String cust_address, int cust_id) {
 
         String sql = "Update Customer set cust_address = ? where cust_id = ? ";
-        int result =  jdbcTemplate.update(sql,cust_address, cust_id);
-        if (result>0){
+        int result = jdbcTemplate.update(sql, cust_address, cust_id);
+        if (result > 0) {
 
             System.out.println("Customer's address updated successfully");
-        }else {
+        } else {
             System.out.println("Updating customer's address failed");
         }
     }
-    public void deleteCustomer(){
 
-        String sql  = "delete from customer";
-        int result = jdbcTemplate.update(sql);
-        if(result>0){
+    public void deleteCustomer(int cust_id) {
+
+        String sql = "delete from customer where cust_id = ?";
+        int result = jdbcTemplate.update(sql, cust_id);
+        if (result > 0) {
             System.out.println("Customer deleted");
 
-        }else{
+        } else {
             System.out.println("Customer deletetion unsuccessful");
 
         }
 
     }
-
 
 }

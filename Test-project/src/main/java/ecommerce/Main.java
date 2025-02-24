@@ -38,7 +38,7 @@ public class Main {
                     categoryMenu.showSubMenu();
                     break;
                 case 2:
-                        productMenu.showSubMenu();
+                    productMenu.showSubMenu();
                     break;
                 case 3:
                     orderMenu.showSubMenu();
@@ -54,10 +54,5 @@ public class Main {
             }
         }
     }
-
-
-
-
-
 }
 

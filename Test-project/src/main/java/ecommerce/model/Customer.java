@@ -13,7 +13,8 @@ public class Customer {
         this.cust_address = cust_address;
         this.cust_phone = cust_phone;
     }
-    public Customer(){
+
+    public Customer() {
 
     }
 

@@ -97,15 +97,12 @@ public class OrderMenu implements SubMenu {
 
                 case 5:
 
+                    return;
+
                 default:
                     System.out.println("Invalid Input");
 
-
             }
-
         }
-
     }
-
-
 }

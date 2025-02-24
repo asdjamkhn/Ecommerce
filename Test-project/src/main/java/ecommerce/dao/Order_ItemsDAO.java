@@ -10,7 +10,6 @@ import java.util.Map;
 
 public class Order_ItemsDAO {
 
-
     private final JdbcTemplate jdbcTemplate = DatabaseConfig.getJdbcTemplate();
 
     public void addOrderItems(int order_id, int product_id, int quantity) {
@@ -42,7 +41,7 @@ public class Order_ItemsDAO {
 
     }
 
-    public List<Map<String,Object>> getOrderItem(int order_item_id){
+    public List<Map<String, Object>> getOrderItem(int order_item_id) {
 
         String sql = "Select * from order_items where order_item_id = ?";
 
@@ -50,16 +49,8 @@ public class Order_ItemsDAO {
 
     }
 
-
 }
 
-
-//deleteProduct
-
-
-//getCategories
-//getCustomerByName
-//updateCustomer
 
 
 

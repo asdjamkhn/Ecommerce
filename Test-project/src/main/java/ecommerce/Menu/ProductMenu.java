@@ -4,7 +4,7 @@ import ecommerce.service.ProductService;
 
 import java.util.Scanner;
 
-public class ProductMenu implements  SubMenu{
+public class ProductMenu implements SubMenu {
 
     ProductService productService = new ProductService();
 
@@ -22,7 +22,6 @@ public class ProductMenu implements  SubMenu{
             System.out.println("6. Top Selling Products:");
             System.out.println("7. Products In Given Category:");
             System.out.println("8. Exit");
-
 
             System.out.println("Please enter your choice");
             Scanner scanner = new Scanner(System.in);
@@ -95,7 +94,6 @@ public class ProductMenu implements  SubMenu{
 
                     productService.updateProduct(productDesc1, prodPrice1, productQuantity1, productID);
 
-
                 case 5:
 
                     System.out.println("Please enter the Product ID");
@@ -112,7 +110,6 @@ public class ProductMenu implements  SubMenu{
 
                     break;
 
-
                 case 7:
 
                     System.out.println("Please enter the category name");
@@ -124,12 +121,11 @@ public class ProductMenu implements  SubMenu{
                     break;
                 case 8:
 
+                    return;
+
                 default:
                     System.out.println("Invalid input");
             }
-
-
         }
-
     }
 }

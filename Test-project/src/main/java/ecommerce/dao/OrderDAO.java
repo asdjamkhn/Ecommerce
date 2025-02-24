@@ -14,7 +14,6 @@ public class OrderDAO {
 
     private final JdbcTemplate jdbcTemplate = DatabaseConfig.getJdbcTemplate();
 
-
     public void createOrder(int customerId, List<Order_Items> order_items) {
 
         String sql = "Insert into Orders (customer_id, order_status) values (?, 'Pending') ";
@@ -27,10 +26,9 @@ public class OrderDAO {
         for (Order_Items item : order_items) {
             jdbcTemplate.update(sql2, orderId, item.getProduct_id(), item.getQuantity());
         }
-        System.out.println("Order created successfully with ID: " +  orderId);
+        System.out.println("Order created successfully with ID: " + orderId);
 
     }
-    // #Generate a report of all orders within a specific date range.
 
     public void orderWithinSpecificDate(String date1, String date2) {
 
@@ -47,37 +45,37 @@ public class OrderDAO {
         return jdbcTemplate.query(sql, new BeanPropertyRowMapper<>(Orders.class), date1, date2);
 
     }
+
     public List<Map<String, Object>> orderWithinSpecificDate2(String date1, String date2) {
 
         String sql = "Select * from orders where date_created between ? and ?";
 
-        return jdbcTemplate.queryForList(sql,date1, date2);
+        return jdbcTemplate.queryForList(sql, date1, date2);
 
     }
 
-    public void deleteOrder(int order_id){
+    public void deleteOrder(int order_id) {
 
         String sql = "delete from Orders where order_id = ?";
-        int result = jdbcTemplate.update(sql,order_id);
-        if (result>0){
+        int result = jdbcTemplate.update(sql, order_id);
+        if (result > 0) {
             System.out.println("Order deleted successfully");
-        }else{
+        } else {
             System.out.println("Order failed to delete");
         }
     }
 
-    public void updateOrder(int order_id ,String order_status){
+    public void updateOrder(int order_id, String order_status) {
 
         String sql = "Update Orders set order_status = ? where order_id = ? ";
-        int result = jdbcTemplate.update(sql,order_status, order_id);
-        if (result>0){
+        int result = jdbcTemplate.update(sql, order_status, order_id);
+        if (result > 0) {
             System.out.println("Order updated successfully");
-        }else{
+        } else {
             System.out.println("Order failed to update");
         }
+
     }
-
-
 
 }
 
