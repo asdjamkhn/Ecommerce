@@ -19,9 +19,7 @@ public class ProductMenu implements SubMenu {
             System.out.println("3. Search Products:");
             System.out.println("4. Update Products:");
             System.out.println("5. Delete Products:");
-            System.out.println("6. Top Selling Products:");
-            System.out.println("7. Products In Given Category:");
-            System.out.println("8. Exit");
+            System.out.println("6. Exit");
 
             System.out.println("Please enter your choice");
             Scanner scanner = new Scanner(System.in);
@@ -105,21 +103,6 @@ public class ProductMenu implements SubMenu {
                     break;
 
                 case 6:
-
-                    System.out.println(productService.topSellingProducts());
-
-                    break;
-
-                case 7:
-
-                    System.out.println("Please enter the category name");
-
-                    Scanner name2 = new Scanner(System.in);
-                    String catName = name2.nextLine();
-                    System.out.println(productService.productsInGivenCategory(catName));
-
-                    break;
-                case 8:
 
                     return;
 

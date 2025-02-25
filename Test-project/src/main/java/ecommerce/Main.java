@@ -1,9 +1,6 @@
 package ecommerce;
 
-import ecommerce.Menu.CategoryMenu;
-import ecommerce.Menu.CustomerMenu;
-import ecommerce.Menu.OrderMenu;
-import ecommerce.Menu.ProductMenu;
+import ecommerce.Menu.*;
 
 import java.util.Arrays;
 import java.util.Scanner;
@@ -18,6 +15,7 @@ public class Main {
         ProductMenu productMenu = new ProductMenu();
         CustomerMenu customerMenu = new CustomerMenu();
         OrderMenu orderMenu = new OrderMenu();
+        ReportMenu reportMenu = new ReportMenu();
 
 
         while (true) {
@@ -27,7 +25,8 @@ public class Main {
             System.out.println("2. Product Management:");
             System.out.println("3. Order Management:");
             System.out.println("4. Customer Management:");
-            System.out.println("5. Exit");
+            System.out.println("5. Reports:");
+            System.out.println("6. Exit");
 
             Scanner scanner = new Scanner(System.in);
             int option = scanner.nextInt();
@@ -47,6 +46,8 @@ public class Main {
                     customerMenu.showSubMenu();
                     break;
                 case 5:
+                    reportMenu.showSubMenu();
+                case 6:
                     System.exit(0);
                 default:
                     System.out.println("Invalid option");

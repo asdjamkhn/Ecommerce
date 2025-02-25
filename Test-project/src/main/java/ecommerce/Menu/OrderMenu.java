@@ -20,10 +20,9 @@ public class OrderMenu implements SubMenu {
             System.out.println("Welcome to the Order Menu");
             System.out.println("Please select the following options");
             System.out.println("1. Create Order:");
-            System.out.println("2. Order With in Specific Date:");
-            System.out.println("3. Delete Order:");
-            System.out.println("4. Update Order:");
-            System.out.println("5. Exit");
+            System.out.println("2. Delete Order:");
+            System.out.println("3. Update Order:");
+            System.out.println("4. Exit");
 
             System.out.println("Please enter your choice");
             Scanner scanner = new Scanner(in);
@@ -41,7 +40,7 @@ public class OrderMenu implements SubMenu {
 
                     while (true) {
 
-                        System.out.println("Please enter the Product ID(Or press -1 to Exit):");
+                        System.out.println("Please enter the Product ID or press -1 to Exit:");
                         Scanner ID = new Scanner(in);
                         int productId = ID.nextInt();
 
@@ -58,21 +57,8 @@ public class OrderMenu implements SubMenu {
 
                     break;
 
+
                 case 2:
-
-                    System.out.println("Please enter the first date");
-                    Scanner date = new Scanner(in);
-                    String date1 = date.nextLine();
-
-                    System.out.println("Please enter the second date");
-                    Scanner datee = new Scanner(in);
-                    String date2 = datee.nextLine();
-
-                    orderService.orderWithinSpecificDate(date1, date2);
-
-                    break;
-
-                case 3:
                     System.out.println("Please enter Order ID");
                     Scanner IDD = new Scanner(in);
                     int orderID = IDD.nextInt();
@@ -81,7 +67,7 @@ public class OrderMenu implements SubMenu {
 
                     break;
 
-                case 4:
+                case 3:
 
                     System.out.println("Please enter Order status");
                     Scanner status = new Scanner(in);
@@ -95,7 +81,7 @@ public class OrderMenu implements SubMenu {
 
                     break;
 
-                case 5:
+                case 4:
 
                     return;
 
