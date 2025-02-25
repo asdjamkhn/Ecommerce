@@ -2,6 +2,7 @@ package ecommerce.service;
 
 import ecommerce.dao.OrderDAO;
 import ecommerce.model.Order_Items;
+import ecommerce.model.Orders;
 
 import java.util.List;
 
@@ -13,8 +14,8 @@ public class OrderService {
         orderDAO.createOrder(customerId, order_items);
 
     }
-    public void orderWithinSpecificDate(String date1, String date2){
-        orderDAO.orderWithinSpecificDate(date1,date2);
+    public List<Orders> orderWithinSpecificDate1(String date1, String date2) {
+        return orderDAO.orderWithinSpecificDate1(date1,date2);
     }
 
     public void deleteOrder(int order_id){

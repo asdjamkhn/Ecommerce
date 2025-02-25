@@ -16,7 +16,7 @@ public class ReportMenu implements SubMenu {
     OrderService orderService = new OrderService();
 
     @Override
-    public void showSubMenu () {
+    public void showSubMenu() throws Exception {
 
 
         while (true) {
@@ -26,40 +26,29 @@ public class ReportMenu implements SubMenu {
             System.out.println("1. Top Selling Products:");
             System.out.println("2. Products In Given Category:");
             System.out.println("3. Order With in Specific Date:");
+            System.out.println("4. Back to main Menu");
+
 
             System.out.println("Please enter your choice");
             Scanner scanner = new Scanner(System.in);
             int menu = scanner.nextInt();
 
+            File file = new File("Files/Reports.txt");
+            try {
+                file.createNewFile();
+            } catch (IOException e) {
+                throw new RuntimeException(e);
+            }
+
+            FileWriter fileWriter = new FileWriter("Files/Reports.txt");
+
             switch (menu) {
 
                 case 1:
 
+                    fileWriter.write("Welcome to Reports.\nReport for Top selling Products.\n");
 
-                        File file = new File("Files/Reports.txt");
-                    try {
-                        file.createNewFile();
-                    } catch (IOException e) {
-                        throw new RuntimeException(e);
-                    }
-
-                    try {
-                        FileWriter fileWriter = new FileWriter("Files/Reports.txt");
-                        fileWriter.write("Welcome to Reports. \n Report for Top selling Products.");
-                        fileWriter.close();
-                    } catch (IOException e) {
-                        throw new RuntimeException(e);
-                    }
-
-                    try {
-                        FileWriter fileWriter = new FileWriter("Files/Reports.txt");
-                        fileWriter.write(productService.topSellingProducts().toString());
-                        fileWriter.close();
-                    } catch (IOException e) {
-                        throw new RuntimeException(e);
-                    }
-
-                    System.out.println(productService.topSellingProducts());
+                    fileWriter.write(productService.topSellingProducts().toString());
 
                     break;
 
@@ -70,16 +59,7 @@ public class ReportMenu implements SubMenu {
                     Scanner name2 = new Scanner(System.in);
                     String catName = name2.nextLine();
 
-
-                    try {
-                        FileWriter fileWriter = new FileWriter("Files/Reports.txt");
-                        fileWriter.write(productService.productsInGivenCategory(catName).toString());
-                        fileWriter.close();
-                    } catch (IOException e) {
-                        throw new RuntimeException(e);
-                    }
-                    System.out.println(productService.productsInGivenCategory(catName));
-
+                    fileWriter.write(productService.productsInGivenCategory(catName).toString());
 
                     break;
 
@@ -93,8 +73,7 @@ public class ReportMenu implements SubMenu {
                     Scanner datee = new Scanner(in);
                     String date2 = datee.nextLine();
 
-                    
-                    orderService.orderWithinSpecificDate(date1, date2);
+                    fileWriter.write(orderService.orderWithinSpecificDate1(date1, date2).toString());
 
                     break;
 
@@ -105,9 +84,9 @@ public class ReportMenu implements SubMenu {
                 default:
                     System.out.println("Invalid input");
 
-
             }
 
+            fileWriter.close();
         }
 
     }

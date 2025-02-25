@@ -1,1 +1,0 @@
-[{prod_id=1, prod_name=iphone 6s, prod_price=40.0, prod_quant=1, cat_name=iphone}, {prod_id=2, prod_name=iphone 7s, prod_price=600.0, prod_quant=2, cat_name=iphone}]

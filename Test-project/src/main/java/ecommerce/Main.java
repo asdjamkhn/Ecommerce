@@ -7,7 +7,7 @@ import java.util.Scanner;
 
 public class Main {
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws Exception{
 
         System.out.println("hello");
 
@@ -47,6 +47,7 @@ public class Main {
                     break;
                 case 5:
                     reportMenu.showSubMenu();
+                    break;
                 case 6:
                     System.exit(0);
                 default:
