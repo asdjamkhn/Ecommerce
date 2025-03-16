@@ -18,7 +18,7 @@ public class Order_ItemsDAO {
 
         int result = jdbcTemplate.update(sql, order_id, product_id, quantity);
         if (result > 0) {
-            System.out.println("Order Items added suuccessfully");
+            System.out.println("Order Items added successfully");
 
         } else {
             System.out.println("Adding Order items failed");
